@@ -12,7 +12,8 @@
 
 +(instancetype)window {
     
-    return [[BBLogWindow alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    CGRect screenBound = UIScreen.mainScreen.bounds;
+    return [[BBLogWindow alloc] initWithFrame:CGRectMake(0, 0, screenBound.size.width, screenBound.size.height)];
     
 }
 

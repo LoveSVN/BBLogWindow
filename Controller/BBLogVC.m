@@ -13,7 +13,7 @@
 
 @interface BBLogVC ()
 @property(nonatomic,strong)NSMutableArray *dataList;
-
+@property(nonatomic,strong)UITableView *tableView;
 @end
 
 @implementation BBLogVC
@@ -34,7 +34,7 @@
         _controlDisplayBtn.layer.cornerRadius = 30;
         [_controlDisplayBtn setTitle:@"显示" forState:UIControlStateNormal];
         [_controlDisplayBtn setTitle:@"隐藏" forState:UIControlStateSelected];
-        _controlDisplayBtn.backgroundColor =NavBarColor;
+        _controlDisplayBtn.backgroundColor = [UIColor blueColor];
     }
     
     return _controlDisplayBtn;
@@ -45,7 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view = [BBLogView new];
-    self.view.backgroundColor = ClearColor;
+    self.view.backgroundColor = [UIColor clearColor];
     [self createSubViews];
     [self layoutSubViews];
     [self bindSignal];
@@ -71,7 +71,7 @@
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerClass:[BBLogTableCell class] forCellReuseIdentifier:@"BBLogTableCell"];
-    self.tableView.backgroundColor = ClearColor;
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.hidden = YES;
 }
 
@@ -109,7 +109,6 @@
         if (x.state == UIGestureRecognizerStateChanged) {
             
         }
-        BBLog(@"===%@",x);
         
     }];
     [self.controlDisplayBtn addGestureRecognizer:longPre];

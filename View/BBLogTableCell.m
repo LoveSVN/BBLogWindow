@@ -13,7 +13,9 @@
 -(UILabel *)logLable {
     
     if (!_logLable) {
-        _logLable = [UILabel labelWithTextColor:[UIColor blackColor] font:Font(10)];
+        _logLable = [UILabel new];
+        _logLable.textColor = [UIColor blackColor];
+        _logLable.font = [UIFont systemFontOfSize:10];
         _logLable.numberOfLines = 0;
     }
     
@@ -31,7 +33,7 @@
         [self createSubViews];
         [self layoutUI];
         [self bindSignal];
-        self.backgroundColor = ClearColor;
+        self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
